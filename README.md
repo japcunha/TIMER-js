@@ -1,2 +1,2 @@
-# Hello world
+TIMER
  Aprendendo javascript
