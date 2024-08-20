@@ -1,0 +1,28 @@
+body {
+    background-color: black;
+}
+h1 {
+    color: white;
+}
+div {
+    text-align: center;
+}
+button {    
+    height: 2em;
+    width: 4em;
+    color: white ;
+    border: none;
+}
+button:hover {
+    cursor: pointer;
+}
+
+.start-btn {
+    background-color: green;
+}
+.pause-btn {
+    background-color: gray;
+}
+.clear-btn {
+    background-color: red;
+}
