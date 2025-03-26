@@ -1,7 +1,6 @@
 let sec = 0;
 let min = 0;
 let hr = 0;
-
 let interval = null;
 const timerElement = document.getElementById('timer');
 
@@ -20,13 +19,13 @@ function pause() {
     interval = null;
 }
 
-function resetTimer() {
+function resetTimer() { // Nome corrigido
     clearInterval(interval);
-    interval = null; // zera o intervalo
+    interval = null;
     sec = 0;
     min = 0;
     hr = 0;
-    updateDisplay(); //atualiza o display
+    updateDisplay();
 }
 
 function timer() {
