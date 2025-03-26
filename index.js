@@ -1,7 +1,8 @@
 let sec = 0;
 let min = 0;
 let hr = 0;
-let interval;
+
+let interval = null;
 const timerElement = document.getElementById('timer');
 
 function formatDigit(digit) {
@@ -21,11 +22,11 @@ function pause() {
 
 function resetTimer() {
     clearInterval(interval);
-    interval = null;
+    interval = null; // zera o intervalo
     sec = 0;
     min = 0;
     hr = 0;
-    updateDisplay();
+    updateDisplay(); //atualiza o display
 }
 
 function timer() {
