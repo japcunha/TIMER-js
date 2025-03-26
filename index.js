@@ -1,41 +1,46 @@
-var sec = 0
-var min = 0
-var hr = 0
-var interval
+let sec = 0;
+let min = 0;
+let hr = 0;
+let interval;
+const timerElement = document.getElementById('timer');
 
-function Digits(digit){
-    if(digit<10){
-        return('0'+digit)
-    }else{
-        return(digit)
+function formatDigit(digit) {
+    return String(digit).padStart(2, '0');
+}
+
+function start() {
+    if (!interval) {
+        interval = setInterval(timer, 1000);
     }
 }
-function start() {
-    timer()
-    interval = setInterval(timer, 1000)
-}
+
 function pause() {
-    clearInterval(interval)
-}
-function clear() {
-    clearInterval(interval)
-    sec=0
-    min=0
-    hr=0
-    document.getElementById('timer').innerText='00:00:00'
+    clearInterval(interval);
+    interval = null;
 }
 
+function resetTimer() {
+    clearInterval(interval);
+    interval = null;
+    sec = 0;
+    min = 0;
+    hr = 0;
+    updateDisplay();
+}
 
 function timer() {
-    sec++
-    if (sec==60){
-        min++
-        sec=0
-        if(min==60){
-            min=0
-            hr++
+    sec++;
+    if (sec === 60) {
+        sec = 0;
+        min++;
+        if (min === 60) {
+            min = 0;
+            hr++;
         }
     }
-    document.getElementById('timer').innerText=Digits(hr)+':'+Digits(min)+':'+Digits(sec)
-    
+    updateDisplay();
+}
+
+function updateDisplay() {
+    timerElement.innerText = `${formatDigit(hr)}:${formatDigit(min)}:${formatDigit(sec)}`;
 }
